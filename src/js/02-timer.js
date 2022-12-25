@@ -14,8 +14,8 @@ const refs = {
 startBtn.disabled = true;
 
 let isActive = false;
-
 let futureTime = null;
+let counterId = null;
 
 const realTime = Date.now();
 console.log(realTime);
@@ -57,7 +57,7 @@ function startCounter() {
 
   isActive = true;
 
-  setInterval(() => {
+  counterId = setInterval(() => {
     const realTime = Date.now();
     // const futureTime = Date.now();
     const timeLeft = futureTime - realTime;
