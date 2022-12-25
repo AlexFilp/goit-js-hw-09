@@ -12,6 +12,8 @@ const refs = {
 
 startBtn.disabled = true;
 
+let isActive = false;
+
 let futureTime = null;
 
 const realTime = Date.now();
@@ -40,6 +42,12 @@ flatpickr('#datetime-picker', {
 startBtn.addEventListener('click', startCounter);
 
 function startCounter() {
+  if (isActive) {
+    return;
+  }
+
+  isActive = true;
+
   setInterval(() => {
     const realTime = Date.now();
     // const futureTime = Date.now();
@@ -47,7 +55,7 @@ function startCounter() {
     const timeComp = convertMs(timeLeft);
     // console.log(timeComp);
     const { days, hours, minutes, seconds } = timeComp;
-    // console.log(`${days}:${hours}:${minutes}:${seconds}`);
+    console.log(`${days}:${hours}:${minutes}:${seconds}`);
     function updateClockFace({ days, hours, minutes, seconds }) {
       refs.daysEl.textContent = `${days}`;
       refs.hoursEl.textContent = `${hours}`;
