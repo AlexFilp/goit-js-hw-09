@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import Notiflix from 'notiflix';
 
 const startBtn = document.querySelector('[data-start]');
 
@@ -31,7 +32,15 @@ flatpickr('#datetime-picker', {
     // console.log(futureTime);
 
     if (realTime > futureTime) {
-      window.alert('Please choose a date in the future');
+      // window.alert('Please choose a date in the future');
+      Notiflix.Notify.init({
+        position: 'center-center',
+        width: '400px',
+        fontSize: '20px',
+        cssAnimationStyle: 'zoom',
+        showOnlyTheLastOne: true,
+      });
+      Notiflix.Notify.failure('Please choose a date in the future');
       startBtn.disabled = true;
     } else {
       startBtn.disabled = false;
