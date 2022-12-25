@@ -43,11 +43,11 @@ function startCounter() {
   setInterval(() => {
     const realTime = Date.now();
     // const futureTime = Date.now();
-    timeLeft = futureTime - realTime;
-    timeComp = convertMs(timeLeft);
+    const timeLeft = futureTime - realTime;
+    const timeComp = convertMs(timeLeft);
     // console.log(timeComp);
     const { days, hours, minutes, seconds } = timeComp;
-    console.log(`${days}:${hours}:${minutes}:${seconds}`);
+    // console.log(`${days}:${hours}:${minutes}:${seconds}`);
     function updateClockFace({ days, hours, minutes, seconds }) {
       refs.daysEl.textContent = `${days}`;
       refs.hoursEl.textContent = `${hours}`;
