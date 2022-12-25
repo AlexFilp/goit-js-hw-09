@@ -14,7 +14,7 @@ startBtn.disabled = true;
 
 let futureTime = null;
 
-realTime = Date.now();
+const realTime = Date.now();
 console.log(realTime);
 
 flatpickr('#datetime-picker', {
