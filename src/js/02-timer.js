@@ -42,6 +42,7 @@ flatpickr('#datetime-picker', {
       });
       Notiflix.Notify.failure('Please choose a date in the future');
       startBtn.disabled = true;
+      clearInterval(counterId);
     } else {
       startBtn.disabled = false;
     }
@@ -56,6 +57,8 @@ function startCounter() {
   }
 
   isActive = true;
+
+  console.log('START');
 
   counterId = setInterval(() => {
     const realTime = Date.now();
@@ -73,7 +76,6 @@ function startCounter() {
     }
     updateClockFace({ days, hours, minutes, seconds });
   }, 1000);
-  console.log('START');
 }
 
 function addLeadingZero(value) {
