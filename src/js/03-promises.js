@@ -15,7 +15,6 @@ function onSubmit(event) {
   event.preventDefault();
 
   const delay = Number(event.target.elements.delay.value);
-  // let delaySum = delay;
   const step = event.target.elements.step.value;
   const amount = event.target.elements.amount.value;
   console.log(delay);
