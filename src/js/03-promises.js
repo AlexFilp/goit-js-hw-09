@@ -1,6 +1,7 @@
 const form = document.querySelector('.form');
 
-console.log(form);
+console.dir(form);
+console.log('HELLO');
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
@@ -10,4 +11,3 @@ function createPromise(position, delay) {
     // Reject
   }
 }
-console.log('HELLO');
