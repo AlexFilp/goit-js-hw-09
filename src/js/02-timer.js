@@ -42,7 +42,7 @@ flatpickr('#datetime-picker', {
       });
       Notiflix.Notify.failure('Please choose a date in the future');
       startBtn.disabled = true;
-      clearInterval(counterId);
+      // clearInterval(counterId);
     } else {
       startBtn.disabled = false;
     }
