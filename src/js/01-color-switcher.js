@@ -6,7 +6,7 @@ const refs = {
 
 let isActive = false;
 let intervalId = null;
-startBtn.disabled = false;
+refs.startBtn.disabled = false;
 
 refs.startBtn.addEventListener('click', makeRandomColor);
 
@@ -15,7 +15,7 @@ function makeRandomColor() {
     return;
   }
   isActive = true;
-  startBtn.disabled = true;
+  refs.startBtn.disabled = true;
   intervalId = setInterval(() => {
     refs.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
@@ -26,7 +26,7 @@ refs.stopBtn.addEventListener('click', stopRandomColor);
 function stopRandomColor() {
   clearInterval(intervalId);
   isActive = false;
-  startBtn.disabled = false;
+  refs.startBtn.disabled = false;
 }
 
 function getRandomHexColor() {
