@@ -1,6 +1,14 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+Notify.init({
+  position: 'center-center',
+  width: '400px',
+  fontSize: '20px',
+  cssAnimationStyle: 'zoom',
+  showOnlyTheLastOne: true,
+});
 
 const startBtn = document.querySelector('[data-start]');
 
@@ -31,18 +39,12 @@ flatpickr('#datetime-picker', {
     futureTime = date.getTime();
     // console.log(futureTime);
 
-    if (realTime > futureTime) {
+    if (realTime >= futureTime) {
       // window.alert('Please choose a date in the future');
-      Notiflix.Notify.init({
-        position: 'center-center',
-        width: '400px',
-        fontSize: '20px',
-        cssAnimationStyle: 'zoom',
-        showOnlyTheLastOne: true,
-      });
-      Notiflix.Notify.failure('Please choose a date in the future');
+
+      Notify.failure('Please choose a date in the future');
       startBtn.disabled = true;
-      // clearInterval(counterId);
+      clearInterval(counterId);
     } else {
       startBtn.disabled = false;
     }
@@ -75,6 +77,12 @@ function startCounter() {
       refs.secondsEl.textContent = `${seconds}`;
     }
     updateClockFace({ days, hours, minutes, seconds });
+    console.log(realTime);
+    console.log(timeLeft);
+
+    if (timeLeft < 1000) {
+      clearInterval(counterId);
+    }
   }, 1000);
 }
 
