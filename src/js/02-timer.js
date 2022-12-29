@@ -26,7 +26,7 @@ let futureTime = null;
 let counterId = null;
 
 const realTime = Date.now();
-console.log(realTime);
+// console.log(realTime);
 
 flatpickr('#datetime-picker', {
   enableTime: true,
@@ -77,8 +77,6 @@ function startCounter() {
       refs.secondsEl.textContent = `${seconds}`;
     }
     updateClockFace({ days, hours, minutes, seconds });
-    console.log(realTime);
-    console.log(timeLeft);
 
     if (timeLeft < 1000) {
       clearInterval(counterId);
