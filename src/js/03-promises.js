@@ -1,5 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+console.log('qwe');
+
 Notify.init({
   position: 'center-center',
   width: '400px',
